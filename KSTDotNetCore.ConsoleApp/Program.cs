@@ -43,10 +43,14 @@ Console.WriteLine("Hello, World!");
 //adoDotNetExample.Update(12, "test title", "test author", "test content");
 //adoDotNetExample.Delete(13);
 //adoDotNetExample.Edit(14);  
-DapperExample dapperExample = new DapperExample();
-dapperExample.Run();
 
 
+//DapperExample dapperExample = new DapperExample();
+//dapperExample.Run();
+
+
+EFCoreExample ef = new EFCoreExample();
+ef.Run();
 
 
 Console.ReadKey();

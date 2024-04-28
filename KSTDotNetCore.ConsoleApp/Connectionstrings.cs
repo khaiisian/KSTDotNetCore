@@ -14,7 +14,8 @@ namespace KSTDotNetCore.ConsoleApp
             DataSource = ".",
             InitialCatalog = "DotNetTrainningBatch4",
             UserID = "sa",
-            Password = "sa@123"
+            Password = "sa@123",
+            TrustServerCertificate = true
         };
     }
 }
