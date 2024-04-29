@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using KSTDotNetCore.ConsoleApp;
+using KSTDotNetCore.ConsoleApp.EFCoreExamples;
 using System.Data;
 using System.Data.SqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;

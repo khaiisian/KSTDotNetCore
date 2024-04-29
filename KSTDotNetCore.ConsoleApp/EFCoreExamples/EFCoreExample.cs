@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KSTDotNetCore.ConsoleApp
+namespace KSTDotNetCore.ConsoleApp.EFCoreExamples
 {
     internal class EFCoreExample
     {
-        private readonly AppDbContext db = new AppDbContext();
+        private readonly AppDbContext db;
+
+        public EFCoreExample()
+        {
+            db = new AppDbContext();
+        }
         public void Run()
         {
             //Read();
@@ -21,7 +26,7 @@ namespace KSTDotNetCore.ConsoleApp
 
         private void Read()
         {
-            var lst= db.Blogs.ToList();
+            var lst = db.Blogs.ToList();
 
             foreach (var item in lst)
             {
@@ -48,7 +53,7 @@ namespace KSTDotNetCore.ConsoleApp
             Console.WriteLine(item.BlogContent);
         }
 
-        private void Create (string title, string author, string content)
+        private void Create(string title, string author, string content)
         {
             var item = new BlogDto
             {
@@ -61,13 +66,13 @@ namespace KSTDotNetCore.ConsoleApp
             int result = db.SaveChanges();
 
             string message = result > 0 ? "Saving successful" : "Saving Failed";
-            Console.WriteLine(message); 
+            Console.WriteLine(message);
         }
 
-        private void Update (int id, string title, string author, string content)
+        private void Update(int id, string title, string author, string content)
         {
             var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
-            
+
             item.BlogTitle = title;
             item.BlogAuthor = author;
             item.BlogContent = content;
@@ -78,7 +83,7 @@ namespace KSTDotNetCore.ConsoleApp
 
         }
 
-        private void Delete (int id)
+        private void Delete(int id)
         {
             var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
             if (item is null)

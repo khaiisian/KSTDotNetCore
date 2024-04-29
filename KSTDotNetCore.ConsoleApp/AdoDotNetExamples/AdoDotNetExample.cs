@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Reflection.Metadata;
 
-namespace KSTDotNetCore.ConsoleApp
+namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
 {
     internal class AdoDotNetExample
     {
@@ -66,7 +66,7 @@ namespace KSTDotNetCore.ConsoleApp
 
             string query = "select * from Tbl_Blog where BlogId = @BlogId";
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue ("@BlogId", id);
+            cmd.Parameters.AddWithValue("@BlogId", id);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sqlDataAdapter.Fill(dt);
@@ -74,23 +74,23 @@ namespace KSTDotNetCore.ConsoleApp
             connection.Close();
             Console.WriteLine("Connection Close.");
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No data found");
                 return;
             }
 
-            DataRow dr= dt.Rows[0];
-             
+            DataRow dr = dt.Rows[0];
+
             Console.WriteLine("Blog Id =>" + dr["BlogId"]);
             Console.WriteLine("Blog Title =>" + dr["BlogTitle"]);
             Console.WriteLine("Blog Author =>" + dr["BlogAuthor"]);
             Console.WriteLine("Blog Content =>" + dr["BlogContent"]);
             Console.WriteLine("...........................................");
-            
+
         }
 
-        public void Create (string title, string author, string content)
+        public void Create(string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -115,10 +115,10 @@ namespace KSTDotNetCore.ConsoleApp
             connection.Close();
 
             string message = result > 0 ? "Saving Successful" : "Saving failed";
-            Console.WriteLine(message); 
+            Console.WriteLine(message);
         }
 
-        public void Update (int id, string title, string author, string content)
+        public void Update(int id, string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -146,29 +146,29 @@ namespace KSTDotNetCore.ConsoleApp
 
 
         //------------DELETE-----------------------------------------------------------------------------------
-      //  public void Delete (int id)
-      //  {
-      //      SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
-      //      connection.Open();
+        //  public void Delete (int id)
+        //  {
+        //      SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+        //      connection.Open();
 
-      //      string query = @"DELETE FROM [dbo].[Tbl_Blog]
-      //WHERE BlogId = @BlogId";
+        //      string query = @"DELETE FROM [dbo].[Tbl_Blog]
+        //WHERE BlogId = @BlogId";
 
-      //      SqlCommand cmd = new SqlCommand(query, connection);
-      //      cmd.Parameters.AddWithValue("@BlogId", id);
+        //      SqlCommand cmd = new SqlCommand(query, connection);
+        //      cmd.Parameters.AddWithValue("@BlogId", id);
 
-      //      int result = cmd.ExecuteNonQuery();
+        //      int result = cmd.ExecuteNonQuery();
 
-      //      connection.Close();
+        //      connection.Close();
 
-      //      string message = result > 0 ? "Deleting  Successful" : "Saving failed";
-      //      Console.WriteLine(message);
-      //  }
+        //      string message = result > 0 ? "Deleting  Successful" : "Saving failed";
+        //      Console.WriteLine(message);
+        //  }
 
 
-        public void Delete (int id)
+        public void Delete(int id)
         {
-            SqlConnection connection = new SqlConnection (_sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
 
             string query = @"DELETE FROM [dbo].[Tbl_Blog]

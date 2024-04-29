@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KSTDotNetCore.ConsoleApp
+namespace KSTDotNetCore.RestApi
 {
     internal static class Connectionstrings
     {

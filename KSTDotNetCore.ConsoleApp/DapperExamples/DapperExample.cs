@@ -1,4 +1,6 @@
 ﻿using Dapper;
+using KSTDotNetCore.ConsoleApp.Dtos;
+using KSTDotNetCore.ConsoleApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KSTDotNetCore.ConsoleApp
+namespace KSTDotNetCore.ConsoleApp.DapperExamples
 {
     internal class DapperExample
     {
@@ -23,8 +25,8 @@ namespace KSTDotNetCore.ConsoleApp
 
         public void Read()
         {
-            IDbConnection db = new SqlConnection (Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            List <BlogDto> lst =  db.Query<BlogDto>("Select * from Tbl_Blog").ToList(); 
+            IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
+            List<BlogDto> lst = db.Query<BlogDto>("Select * from Tbl_Blog").ToList();
 
             foreach (BlogDto item in lst)
             {
@@ -39,7 +41,7 @@ namespace KSTDotNetCore.ConsoleApp
         public void Edit(int id)
         {
             IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            var item = db.Query<BlogDto>("Select * from Tbl_Blog where BlogId = @BlogId", new BlogDto { BlogId= id}).FirstOrDefault();
+            var item = db.Query<BlogDto>("Select * from Tbl_Blog where BlogId = @BlogId", new BlogDto { BlogId = id }).FirstOrDefault();
 
             if (item is null)
             {
@@ -51,10 +53,10 @@ namespace KSTDotNetCore.ConsoleApp
             Console.WriteLine(item.BlogTitle);
             Console.WriteLine(item.BlogAuthor);
             Console.WriteLine(item.BlogContent);
-            
+
         }
 
-        public void Create(string  title, string author, string content)
+        public void Create(string title, string author, string content)
         {
             var item = new BlogDto
             {
@@ -78,7 +80,7 @@ namespace KSTDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        public void Update (int id, string title, string author, string content)
+        public void Update(int id, string title, string author, string content)
         {
             var item = new BlogDto
             {
@@ -101,7 +103,7 @@ namespace KSTDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        public void Delete (int id)
+        public void Delete(int id)
         {
             var item = new BlogDto
             {
@@ -109,7 +111,7 @@ namespace KSTDotNetCore.ConsoleApp
             };
             string query = @"DELETE FROM [dbo].[Tbl_Blog] WHERE BlogId = @BlogId";
             IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            int result= db.Execute(query,item);
+            int result = db.Execute(query, item);
 
             string message = result > 0 ? "Deleting Successful" : "Deleting Failed";
             Console.WriteLine(message);
