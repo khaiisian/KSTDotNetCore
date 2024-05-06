@@ -144,16 +144,24 @@ namespace KSTDotNetCore.RestApi.Controllers
       ,[BlogContent] = @BlogContent
  WHERE BlogId = @BlogId";
 
-            SqlConnection conn = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
-            cmd.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
-            cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
-            cmd.Parameters.AddWithValue("@BlogId", id);
+            //SqlConnection conn = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
+            //conn.Open();
+            //SqlCommand cmd = new SqlCommand(query, conn);
+            //cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
+            //cmd.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
+            //cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
+            //cmd.Parameters.AddWithValue("@BlogId", id);
 
-            int result = cmd.ExecuteNonQuery ();
-            conn.Close();
+            int result = _adoDotNetService.Execute(query,
+                new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
+                new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
+                new AdoDotNetParameter("@BlogContent", blog.BlogContent),
+                new AdoDotNetParameter("@BlogId", id)
+
+            );
+
+            //int result = cmd.ExecuteNonQuery ();
+            //conn.Close();
 
             string message = result > 0 ? "Updating  Successful" : "Saving failed";
             return Ok(message);
@@ -187,31 +195,49 @@ namespace KSTDotNetCore.RestApi.Controllers
    SET {condition}
  WHERE BlogId = @BlogId";
 
-            SqlConnection conn = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
+            //SqlConnection conn = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
 
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(query, conn);
+            //conn.Open();
+            //SqlCommand cmd = new SqlCommand(query, conn);
+
+            //if (!string.IsNullOrEmpty(blog.BlogTitle))
+            //{
+            //    cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
+            //}
+            //if (!string.IsNullOrEmpty(blog.BlogAuthor))
+            //{
+            //    cmd.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
+            //}
+            //if (!string.IsNullOrEmpty(blog.BlogContent))
+            //{
+            //    cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
+            //}
+            //cmd.Parameters.AddWithValue("@BlogId", id);
+
+            //int result = cmd.ExecuteNonQuery();
+            //conn.Close();
+
+            AdoDotNetParameter[] parameters = new AdoDotNetParameter[4];
+            parameters[0] = new AdoDotNetParameter("@BlogId", id);
 
             if (!string.IsNullOrEmpty(blog.BlogTitle))
             {
-                cmd.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
+                parameters[1] = new AdoDotNetParameter("@BlogTitle", blog.BlogTitle);
             }
             if (!string.IsNullOrEmpty(blog.BlogAuthor))
             {
-                cmd.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
+                parameters[2] = new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor);
             }
             if (!string.IsNullOrEmpty(blog.BlogContent))
             {
-                cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
+                parameters[3] = new AdoDotNetParameter("@BlogContent", blog.BlogContent);
             }
-            cmd.Parameters.AddWithValue("@BlogId", id);
-
-            int result = cmd.ExecuteNonQuery();
-            conn.Close();
+            int result = _adoDotNetService.Patch(query, parameters);
 
             string message = result > 0 ? "Updating  Successful" : "Saving failed";
             return Ok(message);
         }
+
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -219,12 +245,15 @@ namespace KSTDotNetCore.RestApi.Controllers
             string query = @"DELETE FROM [dbo].[Tbl_Blog]
       WHERE BlogId = @BlogId";
 
-            SqlConnection conn = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@BlogId", id);
-            int result = cmd.ExecuteNonQuery();
-            conn.Close();
+            //SqlConnection conn = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
+            //conn.Open();
+            //SqlCommand cmd = new SqlCommand(query, conn);
+            //cmd.Parameters.AddWithValue("@BlogId", id);
+            //int result = cmd.ExecuteNonQuery();
+            //conn.Close();
+
+            int result = _adoDotNetService.Execute(query,
+                new AdoDotNetParameter("@BlogId", id));
 
             string message = result > 0 ? "Deleting  Successful" : "Deleting failed";
             return Ok(message);

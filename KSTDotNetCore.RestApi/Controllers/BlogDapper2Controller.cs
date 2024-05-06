@@ -166,7 +166,9 @@ namespace KSTDotNetCore.RestApi.Controllers
             string query = @"DELETE FROM [dbo].[Tbl_Blog] WHERE BlogId = @BlogId";
             using IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
             //int result = db.Execute(query, item);
-            int result = db.Execute(query, new BlogModel { BlogId = id });
+            //int result = db.Execute(query, new BlogModel { BlogId = id });
+
+            int result = _dapperService.Execute(query, new BlogModel { BlogId = id });
 
             string message = result > 0 ? "Deleting successful" : "Deleting Failed";
             return Ok(message);

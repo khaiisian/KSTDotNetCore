@@ -102,6 +102,37 @@ namespace KSTDotNetCore.Shared
 
             return result;
         }
+
+        public int Patch(string query,  AdoDotNetParameter[]? parameters = null)
+        {
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            SqlCommand cmd = new SqlCommand(query, connection);
+            if (parameters is not null && parameters.Length > 0)
+            {
+                foreach (var item in parameters)
+                {
+                    if (item != null)
+                    {
+                        cmd.Parameters.AddWithValue(item.Name, item.Value);
+                    }
+                }
+
+
+                //cmd.Parameters.AddRange(parameters.Select(item => new SqlParameter(item.Name, item.Value)).ToArray());
+
+                //var parameterArray = parameters.Select(item => new SqlParameter(item.Name, item.Value)).ToArray();
+                //cmd.Parameters.AddRange(parameterArray);
+            }
+            var result = cmd.ExecuteNonQuery();
+
+            connection.Close();
+
+
+
+            return result;
+        }
     }
     public class AdoDotNetParameter
     {
