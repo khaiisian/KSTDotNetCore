@@ -97,13 +97,10 @@ namespace KSTDotNetCore.Shared
             var result = cmd.ExecuteNonQuery();
 
             connection.Close();
-
-            
-
             return result;
         }
 
-        public int Patch(string query,  AdoDotNetParameter[]? parameters = null)
+        public int Patch(string query,  AdoDotNetParameter[]? parameters)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();
@@ -118,8 +115,6 @@ namespace KSTDotNetCore.Shared
                         cmd.Parameters.AddWithValue(item.Name, item.Value);
                     }
                 }
-
-
                 //cmd.Parameters.AddRange(parameters.Select(item => new SqlParameter(item.Name, item.Value)).ToArray());
 
                 //var parameterArray = parameters.Select(item => new SqlParameter(item.Name, item.Value)).ToArray();
@@ -128,9 +123,6 @@ namespace KSTDotNetCore.Shared
             var result = cmd.ExecuteNonQuery();
 
             connection.Close();
-
-
-
             return result;
         }
     }
