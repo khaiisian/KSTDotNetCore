@@ -100,7 +100,7 @@ namespace KSTDotNetCore.Shared
             return result;
         }
 
-        public int Patch(string query,  AdoDotNetParameter[]? parameters)
+        public int Execute1(string query,  params AdoDotNetParameter[]? parameters)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
             connection.Open();

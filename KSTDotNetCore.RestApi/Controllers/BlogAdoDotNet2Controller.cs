@@ -152,7 +152,7 @@ namespace KSTDotNetCore.RestApi.Controllers
             //cmd.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
             //cmd.Parameters.AddWithValue("@BlogId", id);
 
-            int result = _adoDotNetService.Execute(query,
+            int result = _adoDotNetService.Execute1(query,
                 new AdoDotNetParameter("@BlogTitle", blog.BlogTitle),
                 new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor),
                 new AdoDotNetParameter("@BlogContent", blog.BlogContent),
@@ -171,23 +171,31 @@ namespace KSTDotNetCore.RestApi.Controllers
         public IActionResult PatchBlog (int id, BlogModel blog)
         {
             string condition = string.Empty;
-            if(!string.IsNullOrEmpty(blog.BlogTitle))
+            AdoDotNetParameter[] parameters = new AdoDotNetParameter[4];
+            parameters[0] = new AdoDotNetParameter("@BlogId", id);
+
+            if (!string.IsNullOrEmpty(blog.BlogTitle))
             {
                 condition += "[BlogTitle] = @BlogTitle, ";
+                parameters[1] = new AdoDotNetParameter("@BlogTitle", blog.BlogTitle);
             }
             if (!string.IsNullOrEmpty(blog.BlogAuthor))
             {
                 condition += "[BlogAuthor] = @BlogAuthor, ";
+                parameters[2] = new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor);
             }
             if (!string.IsNullOrEmpty(blog.BlogContent))
             {
                 condition += "[BlogContent] = @BlogContent, ";
+                parameters[3] = new AdoDotNetParameter("@BlogContent", blog.BlogContent);
             }
 
             if (condition.Length == 0)
             {
                 return Ok("No data to update");
             }
+
+            new AdoDotNetParameter("@BlogId", id);
 
             condition = condition.Substring(0, condition.Length - 2);
 
@@ -217,22 +225,22 @@ namespace KSTDotNetCore.RestApi.Controllers
             //int result = cmd.ExecuteNonQuery();
             //conn.Close();
 
-            AdoDotNetParameter[] parameters = new AdoDotNetParameter[4];
-            parameters[0] = new AdoDotNetParameter("@BlogId", id);
+            //AdoDotNetParameter[] parameters = new AdoDotNetParameter[4];
+            //parameters[0] = new AdoDotNetParameter("@BlogId", id);
 
-            if (!string.IsNullOrEmpty(blog.BlogTitle))
-            {
-                parameters[1] = new AdoDotNetParameter("@BlogTitle", blog.BlogTitle);
-            }
-            if (!string.IsNullOrEmpty(blog.BlogAuthor))
-            {
-                parameters[2] = new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor);
-            }
-            if (!string.IsNullOrEmpty(blog.BlogContent))
-            {
-                parameters[3] = new AdoDotNetParameter("@BlogContent", blog.BlogContent);
-            }
-            int result = _adoDotNetService.Patch(query, parameters);
+            //if (!string.IsNullOrEmpty(blog.BlogTitle))
+            //{
+            //    parameters[1] = new AdoDotNetParameter("@BlogTitle", blog.BlogTitle);
+            //}
+            //if (!string.IsNullOrEmpty(blog.BlogAuthor))
+            //{
+            //    parameters[2] = new AdoDotNetParameter("@BlogAuthor", blog.BlogAuthor);
+            //}
+            //if (!string.IsNullOrEmpty(blog.BlogContent))
+            //{
+            //    parameters[3] = new AdoDotNetParameter("@BlogContent", blog.BlogContent);
+            //}
+            int result = _adoDotNetService.Execute1(query, parameters);
 
             string message = result > 0 ? "Updating  Successful" : "Saving failed";
             return Ok(message);
@@ -252,7 +260,7 @@ namespace KSTDotNetCore.RestApi.Controllers
             //int result = cmd.ExecuteNonQuery();
             //conn.Close();
 
-            int result = _adoDotNetService.Execute(query,
+            int result = _adoDotNetService.Execute1(query,
                 new AdoDotNetParameter("@BlogId", id));
 
             string message = result > 0 ? "Deleting  Successful" : "Deleting failed";
