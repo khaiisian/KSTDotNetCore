@@ -1,4 +1,4 @@
-﻿using KSTDotNetCore.ConsoleApp.EFCoreExamples;
+﻿using KSTDotNetCore.ConsoleApp.Db;
 using KSTDotNetCore.RestApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

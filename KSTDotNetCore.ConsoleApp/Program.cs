@@ -1,8 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using KSTDotNetCore.ConsoleApp.AdoDotNetExamples;
 using KSTDotNetCore.ConsoleApp.EFCoreExamples;
 using System.Data;
 using System.Data.SqlClient;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 Console.WriteLine("Hello, World!");
 
@@ -35,10 +36,10 @@ Console.WriteLine("Hello, World!");
 //    Console.WriteLine("Blog Author =>" + dr["BlogAuthor"]);
 //    Console.WriteLine("Blog Content =>" + dr["BlogContent"]);
 //    Console.WriteLine("...........................................");
-//}
+////}
 
 //AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-//adoDotNetExample.Read();
+////adoDotNetExample.Read();
 //adoDotNetExample.Create("title", "author", "content");
 //adoDotNetExample.Update(12, "test title", "test author", "test content");
 //adoDotNetExample.Delete(13);
@@ -49,8 +50,8 @@ Console.WriteLine("Hello, World!");
 //dapperExample.Run();
 
 
-EFCoreExample ef = new EFCoreExample();
-ef.Run();
+//EFCoreExample ef = new EFCoreExample();
+//ef.Run();
 
 
 Console.ReadKey();

@@ -12,7 +12,7 @@ namespace KSTDotNetCore.ConsoleApp.Services
         public static SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
         {
             DataSource = ".",
-            InitialCatalog = "DotNetTrainningBatch4",
+            InitialCatalog = "DotNetTrainingBatch4",
             UserID = "sa",
             Password = "sa@123",
             TrustServerCertificate = true

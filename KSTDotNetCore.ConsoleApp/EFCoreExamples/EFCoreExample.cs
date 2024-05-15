@@ -16,12 +16,12 @@ namespace KSTDotNetCore.ConsoleApp.EFCoreExamples
         }
         public void Run()
         {
-            //Read();
+            Read();
             //Edit(10);
             //Edit(14);
             //Create("TiTle", "aUTHOR", "ConTent");
             //Update(17, "TITLE", "AUTHOR", "CONTENT");
-            Delete(16);
+            //Delete(16);
         }
 
         private void Read()
@@ -31,8 +31,8 @@ namespace KSTDotNetCore.ConsoleApp.EFCoreExamples
             foreach (var item in lst)
             {
                 Console.WriteLine(item.BlogId);
+                Console.WriteLine("'"+item.BlogTitle+ "'");
                 Console.WriteLine(item.BlogAuthor);
-                Console.WriteLine(item.BlogTitle);
                 Console.WriteLine(item.BlogContent);
                 Console.WriteLine("-------------------------------------------------");
             }

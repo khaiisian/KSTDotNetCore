@@ -11,8 +11,8 @@ namespace KSTDotNetCore.RestApi
     {
         public static SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
         {
-            DataSource = ".",
-            InitialCatalog = "DotNetTrainningBatch4",
+            DataSource = "DESKTOP-ASD1SEV",
+            InitialCatalog = "DotNetTrainingBatch4",
             UserID = "sa",
             Password = "sa@123",
             TrustServerCertificate = true

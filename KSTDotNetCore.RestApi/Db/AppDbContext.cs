@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KSTDotNetCore.ConsoleApp.EFCoreExamples
+namespace KSTDotNetCore.ConsoleApp.Db
 {
     internal class AppDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //if you use MySQL or Oracle or other change name behind Use.
             optionsBuilder.UseSqlServer(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
         }
-
         public DbSet<BlogModel> Blogs { get; set; }
     }
 }

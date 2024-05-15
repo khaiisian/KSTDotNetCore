@@ -11,7 +11,8 @@ namespace KSTDotNetCore.RestApi.Models;
 [Table("Tbl_Blog")]
 public class BlogModel
 {
-    [Key]   // Have to use this above the that is supposed to be a primary key in the table
+    // Have to use this above the that is supposed to be a primary key in the table
+    [Key]
     public int BlogId { get; set; }
     public string? BlogTitle { get; set; }
     public string? BlogAuthor { get; set; }

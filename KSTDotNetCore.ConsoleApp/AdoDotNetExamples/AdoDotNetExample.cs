@@ -15,7 +15,7 @@ namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
         private readonly SqlConnectionStringBuilder _sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
         {
             DataSource = ".",
-            InitialCatalog = "DotNetTrainningBatch4",
+            InitialCatalog = "DotNetTrainingBatch4",
             UserID = "sa",
             Password = "sa@123"
         };
@@ -45,10 +45,10 @@ namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
 
             foreach (DataRow dr in dt.Rows)
             {
-                Console.WriteLine("Blog Id =>" + dr["BlogId"]);
-                Console.WriteLine("Blog Title =>" + dr["BlogTitle"]);
-                Console.WriteLine("Blog Author =>" + dr["BlogAuthor"]);
-                Console.WriteLine("Blog Content =>" + dr["BlogContent"]);
+                Console.WriteLine("Blog Id =>" + dr["BlogId"]+"'");
+                Console.WriteLine("Blog Title =>" + dr["BlogTitle"]+"'");
+                Console.WriteLine("Blog Author =>" + dr["BlogAuthor"] + "'");
+                Console.WriteLine("Blog Content =>" + dr["BlogContent"] + "'");
                 Console.WriteLine("...........................................");
             }
         }
