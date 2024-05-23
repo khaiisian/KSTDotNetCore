@@ -1,6 +1,4 @@
-﻿using Microsoft.Identity.Client;
-
-namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
+﻿namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
 {
     // Business Logic
     public class BL_Blog
@@ -18,20 +16,17 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
             return lst;
         }
 
-
         public BlogModel GetBlog(int id)
         {
             var item = _daBlog.GetBlog(id);
             return item;
         }
 
-
         public int CreateBlog(BlogModel requestModel)
         {
             int result = _daBlog.CreatBlog(requestModel);
             return result;
         }
-
 
         public int UpdateBlog(int id, BlogModel requestModel)
         {

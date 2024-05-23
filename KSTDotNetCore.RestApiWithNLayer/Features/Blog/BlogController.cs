@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
 {
@@ -14,7 +13,6 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
             _bl_Blog = new BL_Blog();
         }
 
-
         [HttpGet]
         public IActionResult Read()
         {
@@ -22,14 +20,16 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
             return Ok(lst);
         }
 
-
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
             var item = _bl_Blog.GetBlog(id);
+            if(item is null)
+            {
+                return NotFound("No data found");
+            }
             return Ok(item);
         }
-
 
         [HttpPost]
         public IActionResult Create(BlogModel blog)
@@ -39,7 +39,6 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
             string message = result > 0 ? "Creating successful" : "Creating Failed";
             return Ok(message);
         }
-
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, BlogModel blog)

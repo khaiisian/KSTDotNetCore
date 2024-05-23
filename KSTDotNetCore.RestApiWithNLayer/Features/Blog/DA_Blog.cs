@@ -12,20 +12,17 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
             _context = new AppDbContext();
         }
 
-
         public List<BlogModel> GetBlogs()
         {
             var lst = _context.Blogs.ToList();
             return lst;
         }
 
-
         public BlogModel GetBlog(int id)
         {
-            var item = _context.Blogs.FirstOrDefault();
+            var item = _context.Blogs.FirstOrDefault(x=>x.BlogId==id);
             return item;
         }
-
 
         public int CreatBlog(BlogModel requestModel)
         { 
@@ -33,7 +30,6 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
             int result = _context.SaveChanges();
             return result;
         }
-
 
         public int UpdateBlog(int id, BlogModel requestModel)
         {
@@ -43,9 +39,9 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Blog
                 return 0;
             }
 
-            requestModel.BlogTitle = item.BlogTitle;
-            requestModel.BlogAuthor = item.BlogAuthor;
-            requestModel.BlogContent = item.BlogContent;
+            item.BlogTitle = requestModel.BlogTitle;
+            item.BlogAuthor = requestModel.BlogAuthor;
+            item.BlogContent = requestModel.BlogContent;
 
             int result = _context.SaveChanges();
             return result;
