@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.PizzaApi", "K
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.ConsoleAppRefitExamples", "KSTDotNetCore.ConsoleAppRefitExamples\KSTDotNetCore.ConsoleAppRefitExamples.csproj", "{5BB001E1-2D07-47FA-8743-DE60529A1419}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.WinFormsApp", "KSTDotNetCore.WinFormsApp\KSTDotNetCore.WinFormsApp.csproj", "{75E06166-B39E-4DDE-9B5D-E522553275B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{5BB001E1-2D07-47FA-8743-DE60529A1419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BB001E1-2D07-47FA-8743-DE60529A1419}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BB001E1-2D07-47FA-8743-DE60529A1419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E06166-B39E-4DDE-9B5D-E522553275B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E06166-B39E-4DDE-9B5D-E522553275B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E06166-B39E-4DDE-9B5D-E522553275B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E06166-B39E-4DDE-9B5D-E522553275B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
