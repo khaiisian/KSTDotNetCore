@@ -57,8 +57,6 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Zodiac
         }
 
 
-
-
         public class MProbverbs
         {
             public Tbl_Mmproverbstitle[] Tbl_MMProverbsTitle { get; set; }

@@ -12,5 +12,4 @@
             inner join Tbl_PizzaExtra pe on pe.PizzaExtraId = pd.PizzaExtraId
             where PizzaOrderInvoiceNo = @PizzaOrderInvoiceNo;";
     }
-    
 }

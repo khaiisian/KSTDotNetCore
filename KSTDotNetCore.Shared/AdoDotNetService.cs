@@ -78,7 +78,6 @@ namespace KSTDotNetCore.Shared
             return list[0];
         }
 
-
         public int Execute(string query, params AdoDotNetParameter[]? parameters)
         {
             SqlConnection connection = new SqlConnection(_connectionString);
@@ -128,8 +127,6 @@ namespace KSTDotNetCore.Shared
     }
     public class AdoDotNetParameter
     {
-
-
         public AdoDotNetParameter(string name, object value)
         {
             Name = name;

@@ -13,32 +13,21 @@ namespace KSTDotNetCore.RestApi.Controllers
     [ApiController]
     public class BlogDapper2Controller : ControllerBase
     {
-
         private readonly DapperService _dapperService = new DapperService(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-
 
         //-----Read-----
         [HttpGet]
         public IActionResult GetBlogs()
         {
             string query = "select * from Tbl_Blog";
-            //using IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            //List<BlogModel> lst = db.Query<BlogModel>(query).ToList();
-
             var lst =_dapperService.Query<BlogModel>(query);
             return Ok(lst);
         }
-
-
-
 
         //-------view------
         [HttpGet("{id}")]
         public IActionResult GetBlog(int id)
         {
-            //string query = "select * from Tbl_Blog where BlogId = @BlogId";
-            //using IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            //var item = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();
             var item = findById(id);
             if (item is null)
             {
@@ -46,10 +35,6 @@ namespace KSTDotNetCore.RestApi.Controllers
             }
             return Ok(item);
         }
-
-
-
-
 
         //--------Create-------
         [HttpPost]
@@ -64,18 +49,10 @@ namespace KSTDotNetCore.RestApi.Controllers
            ,@BlogAuthor       
            ,@BlogContent)";
 
-            //using IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            //int result = db.Execute(query, blog);
-
             int result = _dapperService.Execute(query,blog);
-
             string message = result > 0 ? "Creating Successful" : "Creating Failed";
             return Ok(message);
         }
-
-
-
-
 
         //------------Update----------------
         [HttpPut("{id}")]
@@ -94,17 +71,10 @@ namespace KSTDotNetCore.RestApi.Controllers
       ,[BlogContent] = @BlogContent
  WHERE BlogId = @BlogId";
 
-            //using IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            //int result = db.Execute(query, blog);
-
             int result = _dapperService.Execute(query, blog);
-
             string message = result > 0 ? "Updating successful" : "Updating Failed";
             return Ok(message);
         }
-
-
-
 
         //--------------Patch----------------
         [HttpPatch("{id}")]
@@ -144,13 +114,8 @@ namespace KSTDotNetCore.RestApi.Controllers
    SET {condition}
  WHERE BlogId = @BlogId";
 
-            //using IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            //int result = db.Execute(query, blog);
-
             int result = _dapperService.Execute(query, blog);
-
-            string message = result > 0 ? "Patching Successful" : "Patching Failed"; 
-
+            string message = result > 0 ? "Patching Successful" : "Patching Failed";
             return Ok(message);
         }
 
@@ -165,11 +130,8 @@ namespace KSTDotNetCore.RestApi.Controllers
 
             string query = @"DELETE FROM [dbo].[Tbl_Blog] WHERE BlogId = @BlogId";
             using IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            //int result = db.Execute(query, item);
-            //int result = db.Execute(query, new BlogModel { BlogId = id });
 
             int result = _dapperService.Execute(query, new BlogModel { BlogId = id });
-
             string message = result > 0 ? "Deleting successful" : "Deleting Failed";
             return Ok(message);
         }
@@ -177,9 +139,6 @@ namespace KSTDotNetCore.RestApi.Controllers
         private BlogModel findById(int id)
         {
             string query = "select * from Tbl_BLog where BlogId = @BlogId";
-            //using IDbConnection db = new SqlConnection(Connectionstrings.sqlConnectionStringBuilder.ConnectionString);
-            //var item = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();
-
             var item = _dapperService.QueryFirstOrDefault<BlogModel>(query, new BlogModel { BlogId = id});
             return item;
         }

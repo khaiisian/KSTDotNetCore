@@ -20,7 +20,6 @@ namespace KSTDotNetCore.ConsoleAppRefitExamples
             //await CreateAsync("Title", "Author", "Content");
             //await UpdateAsync(100, "title", "author", "content");
             await DeleteAsync(105);
-
         }
 
         private async Task ReadAsync()

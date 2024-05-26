@@ -23,9 +23,6 @@ namespace KSTDotNetCore.RestApi.Controllers
             return Ok(lst);
         }
 
-
-
-
         //-------view------
         [HttpGet("{id}")]
         public IActionResult GetBlog(int id)
@@ -40,10 +37,6 @@ namespace KSTDotNetCore.RestApi.Controllers
             }
             return Ok(item);
         }
-
-
-
-
 
         //--------Create-------
         [HttpPost]
@@ -64,10 +57,6 @@ namespace KSTDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Creating Successful" : "Creating Failed";
             return Ok(message);
         }
-
-
-
-
 
         //------------Update----------------
         [HttpPut("{id}")]
@@ -91,9 +80,6 @@ namespace KSTDotNetCore.RestApi.Controllers
             string message = result > 0 ? "Updating successful" : "Updating Failed";
             return Ok(message);
         }
-
-
-
 
         //--------------Patch----------------
         [HttpPatch("{id}")]

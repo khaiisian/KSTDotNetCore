@@ -53,7 +53,6 @@ namespace KSTDotNetCore.ConsoleApp.DapperExamples
             Console.WriteLine(item.BlogTitle);
             Console.WriteLine(item.BlogAuthor);
             Console.WriteLine(item.BlogContent);
-
         }
 
         public void Create(string title, string author, string content)

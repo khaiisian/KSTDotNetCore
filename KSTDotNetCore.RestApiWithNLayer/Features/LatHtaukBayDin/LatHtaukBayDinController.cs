@@ -18,7 +18,6 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.LatHtaukBayDin
             return model;
         }
 
-
         // api/ LatHtaukBaydDin/ question <- endpoint
         [HttpGet("question")]
         public async Task <IActionResult> Questions()
@@ -40,9 +39,6 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.LatHtaukBayDin
             var model = await GetData();
             return Ok(model.answers.FirstOrDefault(x => x.questionNo == Qnum && x.answerNo == no));
         }
-
-
-
 
         public class LatHtaukBayDin
         {

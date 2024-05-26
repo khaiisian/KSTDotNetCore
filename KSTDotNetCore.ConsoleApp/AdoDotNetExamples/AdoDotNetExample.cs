@@ -144,7 +144,6 @@ namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
             Console.WriteLine(message);
         }
 
-
         //------------DELETE-----------------------------------------------------------------------------------
         //  public void Delete (int id)
         //  {
@@ -164,7 +163,6 @@ namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
         //      string message = result > 0 ? "Deleting  Successful" : "Saving failed";
         //      Console.WriteLine(message);
         //  }
-
 
         public void Delete(int id)
         {

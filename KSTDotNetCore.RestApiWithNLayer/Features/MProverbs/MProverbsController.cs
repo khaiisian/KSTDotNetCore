@@ -62,15 +62,7 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Zodiac
             return Ok(model.Tbl_MMProverbsTitle);
         }
 
-        //[HttpGet("Myanmar Quotes")]
-        //public async Task<IActionResult> MMQuotes()
-        //{
-        //    var model = await GetData();
-        //    return Ok(model.Tbl_MMProverbs);
-        //}
-
         [HttpGet("{alpha}")]
-
         public async Task<IActionResult> MMQuotes(string alpha)
         {
             var model = await GetData();
@@ -87,8 +79,6 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Zodiac
             return Ok(model.Tbl_MMProverbs.Where(x => x.ProverbId == id && x.TitleId == id));
 
         }
-
-
 
 
         public class MProbverbs
@@ -110,6 +100,5 @@ namespace KSTDotNetCore.RestApiWithNLayer.Features.Zodiac
             public string ProverbName { get; set; }
             public string ProverbDesp { get; set; }
         }
-
     }
 }

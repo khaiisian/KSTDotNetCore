@@ -24,7 +24,6 @@ namespace KSTDotNetCore.ConsoleAppRestClientExample
             //await CreatAsync("Title", "Author", "Content");
             //await UpdateAsync(5, "TITLE", "AUTHOR", "CONTENT");
             //await ViewAsync(5);
-
         }
 
         private async Task readAsync()
@@ -46,7 +45,6 @@ namespace KSTDotNetCore.ConsoleAppRestClientExample
                     Console.WriteLine($"Title => {item.BlogTitle}");
                     Console.WriteLine($"Author => {item.BlogAuthor}");
                     Console.WriteLine($"Content => {item.BlogContent}");
-
                 }
             }
 

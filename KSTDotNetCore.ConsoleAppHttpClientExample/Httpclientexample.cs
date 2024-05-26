@@ -23,7 +23,6 @@ namespace KSTDotNetCore.ConsoleAppHttpClientExample
             //await CreatAsync("Title", "Author", "Content");
             await UpdateAsync(5, "TITLE", "AUTHOR", "CONTENT");
             await ViewAsync(5);
-
         }
 
         private async Task readAsync()
@@ -41,7 +40,6 @@ namespace KSTDotNetCore.ConsoleAppHttpClientExample
                     Console.WriteLine($"Title => {item.BlogTitle}");
                     Console.WriteLine($"Author => {item.BlogAuthor}");
                     Console.WriteLine($"Content => {item.BlogContent}");
-
                 }
             }
 
@@ -67,7 +65,6 @@ namespace KSTDotNetCore.ConsoleAppHttpClientExample
                 Console.WriteLine(message);
             }
         }
-
         
         private async Task CreatAsync(string title, string author, string content)
         {
@@ -109,7 +106,6 @@ namespace KSTDotNetCore.ConsoleAppHttpClientExample
             }
         }
 
-        
         private async Task DeleteAsync(int id)
         {
             var response = await _client.DeleteAsync($"{_blogEndPoint}/{id}");

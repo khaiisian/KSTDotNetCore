@@ -111,10 +111,5 @@ namespace KSTDotNetCore.PizzaApi.Features.Pizza
 
             return Ok(model);
         }
-
-
-        
     }
-
-    
 }

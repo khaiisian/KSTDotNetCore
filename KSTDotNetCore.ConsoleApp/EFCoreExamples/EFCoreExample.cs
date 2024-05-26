@@ -9,7 +9,6 @@ namespace KSTDotNetCore.ConsoleApp.EFCoreExamples
     internal class EFCoreExample
     {
         private readonly AppDbContext db;
-
         public EFCoreExample()
         {
             db = new AppDbContext();
