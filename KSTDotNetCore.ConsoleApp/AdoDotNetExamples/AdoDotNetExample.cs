@@ -19,6 +19,7 @@ namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
             UserID = "sa",
             Password = "sa@123"
         };
+
         public void Read()
         {
             //SqlConnectionStringBuilder stringBuilder = new SqlConnectionStringBuilder();
@@ -29,7 +30,6 @@ namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
 
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             //SqlConnection connection = new SqlConnection("Data Source=.;Initial Catalog=DotNetTrainningBatch4;User ID=sa;Password=sa@123");
-
 
             connection.Open();
             Console.WriteLine("Connection Open.");
@@ -53,13 +53,10 @@ namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
             }
         }
 
-        //-------------Edit-------------------------------------------------------------------------
-
         public void Edit(int id)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             //SqlConnection connection = new SqlConnection("Data Source=.;Initial Catalog=DotNetTrainningBatch4;User ID=sa;Password=sa@123");
-
 
             connection.Open();
             Console.WriteLine("Connection Open.");
@@ -87,7 +84,6 @@ namespace KSTDotNetCore.ConsoleApp.AdoDotNetExamples
             Console.WriteLine("Blog Author =>" + dr["BlogAuthor"]);
             Console.WriteLine("Blog Content =>" + dr["BlogContent"]);
             Console.WriteLine("...........................................");
-
         }
 
         public void Create(string title, string author, string content)
