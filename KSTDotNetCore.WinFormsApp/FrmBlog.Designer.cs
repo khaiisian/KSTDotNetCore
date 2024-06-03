@@ -36,6 +36,7 @@
             txtContent = new TextBox();
             btnCancel = new Button();
             btnSave = new Button();
+            btnEdit = new Button();
             SuspendLayout();
             // 
             // label1
@@ -119,11 +120,26 @@
             btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += btnSave_Click;
             // 
-            // Frm
+            // btnEdit
+            // 
+            btnEdit.BackColor = Color.Purple;
+            btnEdit.FlatAppearance.BorderSize = 0;
+            btnEdit.ForeColor = Color.White;
+            btnEdit.Location = new Point(294, 308);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(79, 32);
+            btnEdit.TabIndex = 9;
+            btnEdit.Text = "&Edit";
+            btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Visible = false;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // FrmBlog
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 562);
+            Controls.Add(btnEdit);
             Controls.Add(btnSave);
             Controls.Add(btnCancel);
             Controls.Add(txtContent);
@@ -134,7 +150,7 @@
             Controls.Add(label1);
             Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
-            Name = "Frm";
+            Name = "FrmBlog";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Blog";
             ResumeLayout(false);
@@ -150,5 +166,6 @@
         private TextBox txtContent;
         private Button btnCancel;
         private Button btnSave;
+        private Button btnEdit;
     }
 }

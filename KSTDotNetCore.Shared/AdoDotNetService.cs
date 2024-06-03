@@ -13,7 +13,7 @@ namespace KSTDotNetCore.Shared
     {
         private readonly string _connectionString;
 
-        public AdoDotNetService(string connectionString)
+        public AdoDotNetService(string connectionString) 
         {
             _connectionString = connectionString;
         }
