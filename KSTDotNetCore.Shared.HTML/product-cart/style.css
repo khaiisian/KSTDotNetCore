@@ -1,17 +1,14 @@
-#cartTbl tr,
-#cartTbl th,
-#cartTbl button {
+#cartTbl * {
     text-align: center;
 }
 
-#productTbl tr,
-#productTbl th,
-#productTbl button {
+#productTbl * {
     text-align: center;
 }
 
 .cTbl {
-    /* display: none; */
+    opacity: 0;
+    display: none;
     width: 65%;
     background-color: rgb(227, 227, 227);
     position: fixed;
@@ -19,16 +16,18 @@
     left: 18%;
     padding: 10px;
     border-radius: 10px;
-    transform: translateY(-175%);
-    transition: opacity 0.3s ease, transform 0.6s ease;
-    z-index: 100;
+    transition-property: display opacity;
+    transition-duration: 0.8s;
+    transition-behavior: allow-discrete;
 }
 
 .cTbl.show {
-    display: block;
     opacity: 1;
-    transform: translateY(0);
-    transition: transform 0.6s ease;
+    display: block;
+
+    @starting-style {
+        opacity: 0;
+    }
 }
 
 .overlay {
