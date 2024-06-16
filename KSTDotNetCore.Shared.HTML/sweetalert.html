@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // successMessage("This is Success")
+        // errorMessage("This is Error")
+
+        function successMessage(message) {
+            Swal.fire({
+                title: "Good job!",
+                text: message,
+                icon: "success"
+            });
+        }
+
+        function errorMessage(message) {
+            Swal.fire({
+                title: "Failed!",
+                text: message,
+                icon: "error"
+            });
+        }
+        function confirm() {
+            Confirm.show(
+                'Confirm',
+                message,
+                'Yes',
+                'No',
+                function okCb() {
+                    alert('Thank you.');
+                },
+                function okCb() {
+                    alert('If you say so...');
+                },
+                {
+                },
+            );
+        }
+    </script>
+</body>
+
+</html>

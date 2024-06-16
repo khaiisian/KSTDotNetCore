@@ -43,6 +43,9 @@ function editProduct(id) {
     $('#txtName').focus();
 }
 
+function confirmUpdate(id, name, price, desc) {
+    confirm("Are you sure to update the product", updateProduct, id, name, price, desc)
+}
 function updateProduct(id, name, price, desc) {
     let lst = getProducts();
 
@@ -64,8 +67,12 @@ function updateProduct(id, name, price, desc) {
     localStorage.setItem(Product, jsonProduct);
 
     successMessage("Successfully Updated.");
+    getProductTbl();
 }
 
+function confirmDelete(id) {
+    confirm("Are you sure to delete the product", deleteProduct, id)
+}
 
 function deleteProduct(id) {
     let lst = getProducts();
@@ -200,7 +207,8 @@ $('#btnSave').click(function () {
     if (productId == null) {
         createProduct(name, price, desc);
     } else {
-        updateProduct(productId, name, price, desc)
+        confirmUpdate(productId, name, price, desc)
+        // updateProduct(productId, name, price, desc)
     }
 
     getProductTbl();
@@ -238,6 +246,25 @@ function errorMessage(message) {
     );
 }
 
+function confirm(message, func, ...para) {
+    Notiflix.Confirm.show(
+        'Confirm',
+        message,
+        'Yes',
+        'No',
+        function okCb() {
+            func(...para);
+        },
+        function cancelCb() {
+            Notiflix.Report.info(
+                'Cancel',
+                'Process Canceled',
+                'Okay',
+            );;
+        }
+    );
+}
+
 function clearControls() {
     $('#txtName').val('');
     $('#txtPrice').val('');
@@ -256,7 +283,7 @@ function getProductTbl() {
             <th scope="row">${++count}.</th>
             <td>
                 <button type="button" class="btn btn-warning" onclick="editProduct('${item.id}')" >Edit</button>  
-                <button type="button" class="btn btn-danger" onclick="deleteProduct('${item.id}')">Delete</button>          
+                <button type="button" class="btn btn-danger" onclick="confirmDelete('${item.id}')">Delete</button>          
             </td>
             <td>${item.name}</td>
             <td>${item.price}</td>
