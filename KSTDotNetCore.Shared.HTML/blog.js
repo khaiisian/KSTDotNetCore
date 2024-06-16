@@ -1,10 +1,29 @@
 const tblBlog = "blogs"
 getBlogTable();
 let blogId = null;
+// testConfirmMessage();
 // createBlog();
 // deleteBlog("103e867e-f95c-4316-a935-c6db55e0fba6");
 // updateBlog("efbbebb2-dce0-4a31-8797-125e457206bf", "a", "b", "C");
 
+function testConfirmMessage() {
+    let confirmMessage = new Promise(function (success, error) {
+        const result = confirm("are you sure to delete")
+        if (result) {
+            success();
+        } else {
+            error();
+        }
+    });
+    confirmMessage.then(
+        function (value) {
+            successMessage("Success");
+        },
+        function (error) {
+            errorMessage("Error")
+        }
+    )
+}
 
 function readBlog() {
     const blogs = localStorage.getItem(tblBlog);
@@ -84,7 +103,7 @@ function updateBlog(id, title, author, content) {
     successMessage("updating successful");
 }
 
-function deleteBlog(id) {
+function deleteBlog2(id) {
     let result = confirm("Are you sure to delete");
     if (!result) return;
 
@@ -105,11 +124,68 @@ function deleteBlog(id) {
     getBlogTable();
 }
 
-function uuidv4() {
-    return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
-        (+c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> +c / 4).toString(16)
-    );
+function deleteBlog1(id) {
+
+    Swal.fire({
+        title: "Confirm",
+        text: "Are you sure to delete!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes"
+    }).then((result) => {
+        if (!result.isConfirmed) return;
+
+        let lst = getBlogs();
+
+        const items = lst.filter(x => x.id === id);
+        if (items.length == 0) {
+            console.log("no data found");
+            return;
+        }
+
+        lst = lst.filter(x => x.id !== id);
+        const jsonBlog = JSON.stringify(lst);
+        localStorage.setItem(tblBlog, jsonBlog);
+
+        successMessage("Deleting successful");
+
+        getBlogTable();
+
+        Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+        });
+
+    });
 }
+
+function deleteBlog(id) {
+    confirmMessage("Are you sure to delete").then(
+        function (value) {
+            let lst = getBlogs();
+
+            const items = lst.filter(x => x.id === id);
+            if (items.length == 0) {
+                console.log("no data found");
+                return;
+            }
+
+            lst = lst.filter(x => x.id !== id);
+            const jsonBlog = JSON.stringify(lst);
+            localStorage.setItem(tblBlog, jsonBlog);
+
+            successMessage("Deleting successful");
+
+            getBlogTable();
+        }
+    )
+
+
+}
+
 
 function getBlogs() {
     const blogs = localStorage.getItem(tblBlog);
@@ -137,13 +213,7 @@ $('#btnSave').click(function () {
     getBlogTable();
 })
 
-let successMessage = (message) => {
-    alert(message);
-}
 
-let errorMessage = (message) => {
-    alert(message)
-}
 
 let clearControls = () => {
     $('#txtTitle').val('');

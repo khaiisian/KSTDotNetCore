@@ -29,22 +29,20 @@
                 icon: "error"
             });
         }
-        function confirm() {
-            Confirm.show(
-                'Confirm',
-                message,
-                'Yes',
-                'No',
-                function okCb() {
-                    alert('Thank you.');
-                },
-                function okCb() {
-                    alert('If you say so...');
-                },
-                {
-                },
-            );
-        }
+        Confirm.show(
+            'Confirm',
+            message,
+            'Yes',
+            'No',
+            function okCb() {
+                alert('Thank you.');
+            },
+            function okCb() {
+                alert('If you say so...');
+            },
+            {
+            },
+        );  
     </script>
 </body>
 
