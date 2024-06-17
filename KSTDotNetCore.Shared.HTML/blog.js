@@ -25,6 +25,27 @@ function testConfirmMessage() {
     )
 }
 
+function testConfirmMessage2() {
+    let confirmMessage = new Promise(function (success, error) {
+        Swal.fire({
+            title: "Confirm",
+            text: message,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                success();
+            } else {
+                error();
+            };
+        }
+        )
+    });
+};
+
 function readBlog() {
     const blogs = localStorage.getItem(tblBlog);
     console.log(blogs)

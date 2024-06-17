@@ -12,11 +12,18 @@ namespace KSTDotNetCore.RestApi.Controllers
     [ApiController]
     public class BlogController : ControllerBase
     {
+        //private readonly AppDbContext _appDbContext;
+
+        //public BlogController()
+        //{
+        //    _appDbContext = new AppDbContext();
+        //}
+
         private readonly AppDbContext _appDbContext;
 
-        public BlogController()
+        public BlogController(AppDbContext appDbContext)
         {
-            _appDbContext = new AppDbContext();
+            _appDbContext = appDbContext;
         }
 
         // Read

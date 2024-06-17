@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace KSTDotNetCore.ConsoleApp.EFCoreExamples
 {
-    internal class EFCoreExample
+    public class EFCoreExample
     {
+        //private readonly AppDbContext db = new AppDbContext();
+        //public EFCoreExample()
+        //{
+        //    db = new AppDbContext();
+        //}
+
         private readonly AppDbContext db;
-        public EFCoreExample()
+
+        public EFCoreExample(AppDbContext db)
         {
-            db = new AppDbContext();
+            this.db = db;
         }
+
         public void Run()
         {
             Read();
