@@ -31,11 +31,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.WinFormsApp",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.WinFormsAppSqlInjection", "KSTDotNetCore.WinFormsAppSqlInjection\KSTDotNetCore.WinFormsAppSqlInjection.csproj", "{7C3A5D87-EEF3-4D90-94CB-16936B0E84FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.NLayer.UI", "KSTDotNetCore.NLayer.UI\KSTDotNetCore.NLayer.UI.csproj", "{38C31F20-408B-4DE5-9E83-4AC794E4E48A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.NLayer.UI", "KSTDotNetCore.NLayer.UI\KSTDotNetCore.NLayer.UI.csproj", "{38C31F20-408B-4DE5-9E83-4AC794E4E48A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.NLayer.BusinessLogic", "KSTDotNetCore.NLayer.BusinessLogic\KSTDotNetCore.NLayer.BusinessLogic.csproj", "{63DE2E45-D295-4B5C-ACB2-44D17EBC6054}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.NLayer.BusinessLogic", "KSTDotNetCore.NLayer.BusinessLogic\KSTDotNetCore.NLayer.BusinessLogic.csproj", "{63DE2E45-D295-4B5C-ACB2-44D17EBC6054}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.NLayer.DataAccess", "KSTDotNetCore.NLayer.DataAccess\KSTDotNetCore.NLayer.DataAccess.csproj", "{FE6BFC95-ECB5-42E6-92CF-E0380C772FE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.NLayer.DataAccess", "KSTDotNetCore.NLayer.DataAccess\KSTDotNetCore.NLayer.DataAccess.csproj", "{FE6BFC95-ECB5-42E6-92CF-E0380C772FE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.MinimalApi", "KSTDotNetCore.MinimalApi\KSTDotNetCore.MinimalApi.csproj", "{EE7D1B40-73A5-4340-A912-B213C1317CAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{FE6BFC95-ECB5-42E6-92CF-E0380C772FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE6BFC95-ECB5-42E6-92CF-E0380C772FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE6BFC95-ECB5-42E6-92CF-E0380C772FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE7D1B40-73A5-4340-A912-B213C1317CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7D1B40-73A5-4340-A912-B213C1317CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7D1B40-73A5-4340-A912-B213C1317CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7D1B40-73A5-4340-A912-B213C1317CAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
