@@ -1,5 +1,4 @@
-﻿using KSTDotNetCore.RestApi;
-using KSTDotNetCore.RestApi.Models;
+﻿using KSTDotNetCore.MvcApp.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KSTDotNetCore.RestApi.Db
+namespace KSTDotNetCore.MvcApp.Db
 {
     public class AppDbContext : DbContext
     {

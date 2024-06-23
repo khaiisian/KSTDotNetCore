@@ -1,4 +1,4 @@
-using KSTDotNetCore.ConsoleApp.Db;
+using KSTDotNetCore.RestApi.Db;
 using KSTDotNetCore.Shared;
 using Microsoft.EntityFrameworkCore;
 
