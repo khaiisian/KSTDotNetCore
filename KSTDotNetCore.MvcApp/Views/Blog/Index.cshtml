@@ -4,24 +4,27 @@
     int count = 0;
 }
 <h2>Blog Page</h2>
+<a class="btn btn-success" href="/Blog/Create">New</a>
 
-<span>
-    @Model.Count
-</span>
 
 <table class="table table-responsive">
     <thead>
         <tr>
-            <td>No.</td>
-            <td>Title</td>
-            <td>Author</td>
-            <td>Content</td>
+            <th></th>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Content</th>
         </tr>
     </thead>
     <tbody>
         @foreach (BlogModel item in Model)
         {
             <tr>
+                <td>
+                    <a href="/Blog/Edit/@item.BlogId" class="btn btn-warning">Edit</a>
+                    <a href="/Blog/Delete/@item.BlogId" class="btn btn-danger">Delete</a>
+                </td>
                 <td>@(++count)</td>
                 <td>@item.BlogTitle</td>
                 <td>@item.BlogAuthor</td>
