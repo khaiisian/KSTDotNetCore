@@ -17,6 +17,7 @@ namespace KSTDotNetCore.MvcApp.Controllers
         public async Task<IActionResult> Index()
         {
             var list = await _db.Blogs
+                .AsNoTracking ()
                 .OrderByDescending(x=>x.BlogId)
                 .ToListAsync();
             return View(list);
@@ -56,7 +57,9 @@ namespace KSTDotNetCore.MvcApp.Controllers
         [ActionName("Update")]
         public async Task<IActionResult> BlogUpdate(int id, BlogModel blog)
         {
-            var item = await _db.Blogs.FirstOrDefaultAsync(x => x.BlogId == id);
+            var item = await _db.Blogs
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.BlogId == id);
             if (item is null)
             {
                 return Redirect("/Blog");
@@ -65,6 +68,8 @@ namespace KSTDotNetCore.MvcApp.Controllers
             item.BlogTitle = blog.BlogTitle;
             item.BlogAuthor = blog.BlogAuthor;
             item.BlogContent = blog.BlogContent;
+
+            _db.Entry(item).State = EntityState.Modified;
 
             await _db.SaveChangesAsync();
             return Redirect("/Blog");
