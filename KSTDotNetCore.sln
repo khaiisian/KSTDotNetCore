@@ -39,7 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.NLayer.DataAc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.MinimalApi", "KSTDotNetCore.MinimalApi\KSTDotNetCore.MinimalApi.csproj", "{EE7D1B40-73A5-4340-A912-B213C1317CAE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.MvcApp", "KSTDotNetCore.MvcApp\KSTDotNetCore.MvcApp.csproj", "{6993BD74-FF5B-47F8-A6D0-589203047389}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.MvcApp", "KSTDotNetCore.MvcApp\KSTDotNetCore.MvcApp.csproj", "{6993BD74-FF5B-47F8-A6D0-589203047389}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.MvcChartApp", "KSTDotNetCore.MvcChartApp\KSTDotNetCore.MvcChartApp.csproj", "{5A6BE9B5-83EE-4089-9357-A9052EEBDBCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{6993BD74-FF5B-47F8-A6D0-589203047389}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6993BD74-FF5B-47F8-A6D0-589203047389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6993BD74-FF5B-47F8-A6D0-589203047389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A6BE9B5-83EE-4089-9357-A9052EEBDBCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A6BE9B5-83EE-4089-9357-A9052EEBDBCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A6BE9B5-83EE-4089-9357-A9052EEBDBCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A6BE9B5-83EE-4089-9357-A9052EEBDBCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
