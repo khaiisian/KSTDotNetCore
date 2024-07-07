@@ -12,5 +12,21 @@ namespace KSTDotNetCore.MvcChartApp.Controllers
             model.Labels = new List<string>() { "Team A", "Team B", "Team C", "Team D", "Team E" };
             return View(model);
         }
+        
+        public IActionResult FunnelChart()
+        {
+            FunnelChartModel model = new FunnelChartModel();
+            model.Data = new List<int> { 1380, 1100, 990, 880, 740, 548, 330, 200 };
+            model.Category = new List<string> {
+                    "Sourced",
+                    "Screened",
+                    "Assessed",
+                    "HR Interview",
+                    "Technical",
+                    "Verify",
+                    "Offered",
+                    "Hired"};
+            return View(model);
+        }
     }
 }
