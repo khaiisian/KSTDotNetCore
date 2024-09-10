@@ -1,10 +1,18 @@
 using KSTDotNetCore.RealtimeChartApp_.Hubs;
+using KSTDotNetCore.RealtimeChartApp_.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
+
+//Dependencies Injection
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+});
 
 var app = builder.Build();
 
