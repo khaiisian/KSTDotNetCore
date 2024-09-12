@@ -41,7 +41,7 @@ namespace KSTDotNetCore.RealtimeChart_2.Controllers
 
             await _hubContext.Clients.All.SendAsync("ReceivePieChart", data);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Create");
         }
     }
 }
