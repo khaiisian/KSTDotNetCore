@@ -53,7 +53,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.RealtimeChart
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.RealtimeChart_2", "KSTDotNetCore.RealtimeChart_2\KSTDotNetCore.RealtimeChart_2.csproj", "{EF1CCA6C-FDE5-4EA0-8BB3-B5FE59E413DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.MvcDesign", "KSTDotNetCore.MvcDesign\KSTDotNetCore.MvcDesign.csproj", "{0D79ABFF-05CE-41BF-B6F1-B2AB0EBF2A72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTDotNetCore.MvcDesign", "KSTDotNetCore.MvcDesign\KSTDotNetCore.MvcDesign.csproj", "{0D79ABFF-05CE-41BF-B6F1-B2AB0EBF2A72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTDotNetCore.BlazorWasm", "KSTDotNetCore.BlazorWasm\KSTDotNetCore.BlazorWasm.csproj", "{427C1E51-54C2-4980-88EB-35F4ACCA4D56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{0D79ABFF-05CE-41BF-B6F1-B2AB0EBF2A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D79ABFF-05CE-41BF-B6F1-B2AB0EBF2A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D79ABFF-05CE-41BF-B6F1-B2AB0EBF2A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{427C1E51-54C2-4980-88EB-35F4ACCA4D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{427C1E51-54C2-4980-88EB-35F4ACCA4D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{427C1E51-54C2-4980-88EB-35F4ACCA4D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{427C1E51-54C2-4980-88EB-35F4ACCA4D56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
